@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FamilyGen.gd" type="Script" id=1]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="BackGround" type="Panel" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="FamilyDisplays" type="Control" parent="BackGround"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -456.0
+margin_top = -225.0
+margin_right = 457.0
+margin_bottom = 157.0
+
+[node name="FamilyMemberList" type="ItemList" parent="BackGround/FamilyDisplays"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -203.0
+margin_right = 365.0
+margin_bottom = 203.0
+
+[node name="MemberDetailLabel" type="Label" parent="BackGround/FamilyDisplays"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -435.0
+margin_bottom = 316.0
+
+[node name="ChoosePartnerButton" type="Button" parent="BackGround/FamilyDisplays/MemberDetailLabel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -416.0
+margin_top = 19.0
+margin_right = -255.0
+margin_bottom = 67.0
+text = "Partner"
+
+[node name="CreateOffspringButton" type="Button" parent="BackGround/FamilyDisplays/MemberDetailLabel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -186.0
+margin_top = 18.0
+margin_right = -25.0
+margin_bottom = 66.0
+text = "Create Offspring"
+
+[node name="VSeparator" type="VSeparator" parent="BackGround/FamilyDisplays"]
+margin_left = 423.0
+margin_right = 462.0
+margin_bottom = 382.0
+
+[node name="MenuButtons" type="Control" parent="BackGround"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -463.0
+margin_top = -94.0
+margin_right = 463.0
+margin_bottom = -27.0
+
+[node name="NewFamilyButton" type="Button" parent="BackGround/MenuButtons"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -33.0
+margin_right = 193.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( -281, -61 )
+text = "New"
+
+[node name="SaveFamilyButton" type="Button" parent="BackGround/MenuButtons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.5
+margin_top = -33.0
+margin_right = 96.5
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( -281, -61 )
+text = "Save"
+
+[node name="LoadFamilyButton" type="Button" parent="BackGround/MenuButtons"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -193.0
+margin_top = -33.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( -281, -61 )
+text = "Load"
+
+[connection signal="pressed" from="BackGround/MenuButtons/NewFamilyButton" to="." method="_on_NewFamilyButton_pressed"]
