@@ -10,6 +10,7 @@ func _ready():
 	var window_size = OS.get_window_size()
 	var centered_pos = (screen_size - window_size) / 2
 	OS.set_window_position(centered_pos)
+	#get_node("BackGround/FamilyDisplays").hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
