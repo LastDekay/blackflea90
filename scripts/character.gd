@@ -14,6 +14,7 @@ var characterTemplate = {
 	"id":"",
 	'givenName':'',
 	'surName':'',
+	'sex':'',
 	"skin":"",
 	"eyeColor":"",
 	"hairColor":"",
@@ -24,12 +25,16 @@ var characterTemplate = {
 	"partners":[]
 }
 
+func genNewId():
+	randomize()
+	return uuid.v4()
 
 func genCharacter(isCore):
 	randomize()
 	#print(uuid.v4())
 	var character = characterTemplate
 	character.id =uuid.v4()
+	character.sex = dkR.selectFrom(sex)
 	character.skin = dkR.selectFrom(skin)
 	character.eyeColor = dkR.selectFrom(color)
 	character.height = rng.randi_range(50,80)
@@ -38,16 +43,18 @@ func genCharacter(isCore):
 	#return character object
 	return character
 
-func createCharacter(gName,sName,skin,eyeColor,hairColor,height,isCore,motherId,fatherId):
+func createCharacter(gName,sName,sex,skin,eyeColor,hairColor,height,isCore,motherId,fatherId):
 	randomize()
 	var character = characterTemplate
 	character.id = uuid.v4()
 	character.givenName = gName
 	character.surName = sName
 	character.skin = skin
+	character.sex = sex
 	character.eyeColor = eyeColor
 	character.hairColor = hairColor
 	character.height = height
 	character.core = isCore
 	character.mother = motherId
 	character.father = fatherId
+	return character
