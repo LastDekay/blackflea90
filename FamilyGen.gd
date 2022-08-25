@@ -42,6 +42,7 @@ func displayMembers():
 	#Add members to display list
 	var countIdx = 0
 	var fcur = familyCurrent.family
+	print(fcur)
 	for memberIdx in fcur["members"].keys():
 		get_node("BackGround/FamilyDisplays/FamilyMemberList").add_item(fcur["members"][memberIdx].givenName)
 		get_node("BackGround/FamilyDisplays/FamilyMemberList").set_item_metadata(countIdx,fcur["members"][memberIdx])
@@ -62,10 +63,11 @@ func _on_FamilyMemberList_item_selected(index):
 	selectedCharacter = metaData.id
 	#Adding partners to list, first clear partner list
 	get_node("BackGround/FamilyDisplays/CreateOffspringWindow/ChoosePartnerLabel/ItemList").clear()
+	var countPartnerIdx = 0
 	for partner in metaData.partners:
 		var currentPartner = familyCurrent["family"]["members"][partner].givenName + " " +  familyCurrent["family"]["members"][partner].surName
 		get_node("BackGround/FamilyDisplays/CreateOffspringWindow/ChoosePartnerLabel/ItemList").add_item(currentPartner)
-
+		get_node("BackGround/FamilyDisplays/CreateOffspringWindow/ChoosePartnerLabel/ItemList").set_item_metadata(countPartnerIdx,partner)
 
 
 #New Family Button
@@ -117,6 +119,11 @@ func _on_NewPartComButton_pressed():
 func _on_CreateOffspringButton_pressed():
 	get_node("BackGround/FamilyDisplays/CreateOffspringWindow").popup()
 
+#Select desired partner
+func _on_ItemList_item_selected(index):
+	selectedPartner = get_node("BackGround/FamilyDisplays/CreateOffspringWindow/ChoosePartnerLabel/ItemList").get_item_metadata(index)
+	print("PartnerID",selectedPartner)
+	
 #Create new offspring UI
 func _on_ConfirmOffspringButton_pressed():
 	get_node("BackGround/FamilyDisplays/CreateOffspringWindow").hide()
@@ -132,6 +139,7 @@ func _on_RandomOffspringButton_pressed():
 	#determine father/mother
 	var mother = ""
 	var father = ""
+	print(familyCurrent["family"]["members"][selectedCharacter].sex)
 	if familyCurrent["family"]["members"][selectedCharacter].sex == "Male":
 		father = selectedCharacter
 		mother = selectedPartner
@@ -196,6 +204,9 @@ func _on_LoadFileButton_pressed():
 	var pathName = get_node("BackGround/MenuButtons/LoadWindowDialog/LoadFileItemList").get_item_text(pathLocInIL)
 	familyCurrent.family =  load_game(pathName)
 	displayMembers()
+
+
+
 
 
 

@@ -571,6 +571,7 @@ margin_bottom = 90.0
 [connection signal="pressed" from="BackGround/FamilyDisplays/MemberDetailLabel/ChoosePartnerButton" to="." method="_on_ChoosePartnerButton_pressed"]
 [connection signal="pressed" from="BackGround/FamilyDisplays/MemberDetailLabel/CreateOffspringButton" to="." method="_on_CreateOffspringButton_pressed"]
 [connection signal="pressed" from="BackGround/FamilyDisplays/NewPartnerWindowDialog/NewPartComButton" to="." method="_on_NewPartComButton_pressed"]
+[connection signal="item_selected" from="BackGround/FamilyDisplays/CreateOffspringWindow/ChoosePartnerLabel/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="BackGround/FamilyDisplays/CreateOffspringWindow/RandomOffspringButton" to="." method="_on_RandomOffspringButton_pressed"]
 [connection signal="pressed" from="BackGround/FamilyDisplays/CreateOffspringWindow/ConfirmOffspringButton" to="." method="_on_ConfirmOffspringButton_pressed"]
 [connection signal="pressed" from="BackGround/MenuButtons/NewFamilyButton" to="." method="_on_NewFamilyButton_pressed"]
