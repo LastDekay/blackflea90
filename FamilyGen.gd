@@ -53,7 +53,8 @@ func displayMembers():
 
 func displayIndividualMember(memberData):
 	#gather partners
-	var display = "\nGiven Name: " + memberData.givenName + "\nPartners: " + PoolStringArray(memberData.partners).join(", ")
+	var display = "\nGiven Name: " + memberData.givenName + " " + memberData.surName + "\nSex: " + memberData.sex + "\nSkin: " + memberData.skin
+	display += "\nPartners: " + PoolStringArray(memberData.partners).join(", ")
 	return display
 
 func _on_FamilyMemberList_item_selected(index):
